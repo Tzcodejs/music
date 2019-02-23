@@ -1,3 +1,5 @@
+// 是否有class
+
 export function hasClass(el, className) {
   return el.classList.contains(className)
 }
