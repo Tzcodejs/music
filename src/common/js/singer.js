@@ -1,3 +1,4 @@
+// 歌手数据类
 export default class Singer {
   constructor({id, name}) {
     this.id = id
