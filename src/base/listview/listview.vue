@@ -33,7 +33,7 @@
   </scroll>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import Scroll from 'base/scroll/scroll'
 import Loading from 'base/loading/loading'
 import {getData} from 'common/js/dom'
@@ -76,6 +76,7 @@ export default {
   },
   methods: {
     selectItem(item) {
+      // 派发这个事件，因为是基础组件所以我们只是派发，让有需要的来获取
       this.$emit('select', item)
     },
     onShortcutTouchStart(e) {
@@ -166,6 +167,7 @@ export default {
 }
 
 </script>
+
 <style scoped lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
 
