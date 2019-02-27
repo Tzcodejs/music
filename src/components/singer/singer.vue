@@ -1,16 +1,17 @@
 <template>
   <div class="singer">
     <list-view @select="selectSinger" :data="singers"></list-view>
-    <!-- 子路由 -->
+    <!-- 子路由 不出现可能原因是样式问题，层次遮挡。子路由就是一个层级。 -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import {getSingerList} from 'api/singer'
-import {ERR_OK} from 'api/config'
+import { getSingerList } from 'api/singer'
+import { ERR_OK } from 'api/config'
 import Singer from 'common/js/singer'
 import ListView from 'base/listview/listview'
+import { mapMutations } from 'vuex'
 
 const HOT_NAME = '热门'
 const HOT_SINGER_LEN = 10
@@ -30,6 +31,8 @@ export default {
       this.$router.push({
         path: `/singer/${singer.id}`
       })
+      // 实现一个mutations的提交
+      this.setSinger(singer)
     },
     _getSingerList() {
       getSingerList().then((res) => {
@@ -82,7 +85,10 @@ export default {
         return a.title.charCodeAt(0) - b.title.charCodeAt(0)
       })
       return hot.concat(ret)
-    }
+    },
+    ...mapMutations({
+      setSinger: 'SET_SINGER'
+    })
   },
   components: {
     ListView

@@ -1,13 +1,14 @@
 // 是否有class
-
 export function hasClass(el, className) {
   return el.classList.contains(className)
 }
 
+// 添加类
 export function addClass(el, className) {
   el.classList.add(className)
 }
 
+// 通过对值得判断来知道是获取数据还是设置数据
 export function getData(el, name, val) {
   const prefix = 'data-'
   if (val) {
