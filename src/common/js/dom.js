@@ -17,8 +17,11 @@ export function getData(el, name, val) {
   return el.getAttribute(prefix + name)
 }
 
+// 能力检查
 let elementStyle = document.createElement('div').style
 
+// js添加浏览器前缀
+// 供应商
 let vendor = (() => {
   let transformNames = {
     webkit: 'webkitTransform',
