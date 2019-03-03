@@ -1,3 +1,4 @@
+// 操作css类、ie10及其以上才支持
 // 是否有class
 export function hasClass(el, className) {
   return el.classList.contains(className)
